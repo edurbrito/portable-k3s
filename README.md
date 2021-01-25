@@ -40,7 +40,7 @@ ethernets:
 version: 2
 ```
 
-1. `sudo netplan apply`
+2. `sudo netplan apply`
 
 #### Creating an SQL Database
 
@@ -91,6 +91,7 @@ Inside my `ubuntu-2` and `ubuntu-3` server machines, I ran:
 1. `export K3S_DATASTORE_ENDPOINT='mysql://username:password@tcp(database_ip_or_hostname:port)/database'` with username as `k3s` and the password the one I defined when creating this user in the database. The database IP was, in my case, `192.168.1.XX:3306` (ubuntu-1) and the database name also `k3s`.
 
 > If you plan on installing Rancher in this cluster, the current stable release (v2.5.5) does not support K3S v1.20. To prevent issues when installing rancher, be sure to include the following:
+>
 > 2. `export INSTALL_K3S_VERSION=v1.19.5+k3s2`
 
 3. `curl -sfL https://get.k3s.io | sh -s - server --node-taint CriticalAddonsOnly=true:NoExecute --tls-san load_balancer_ip_or_hostname` with the load balancer IP address as `192.168.1.XX:6443` (ubuntu-1).
@@ -103,6 +104,7 @@ Inside my `ubuntu-2` and `ubuntu-3` server machines, I ran:
 Inside my `ubuntu-1`, I ran:
 
 > If you plan on installing Rancher in this cluster, the current stable release (v2.5.5) does not support K3S v1.20. To prevent issues when installing rancher, be sure to include the following:
+> 
 > 1. `export INSTALL_K3S_VERSION=v1.19.5+k3s2`
 
 2. `curl -sfL https://get.k3s.io | K3S_URL=https://load_balancer_ip_or_hostname:6443 K3S_TOKEN=mynodetoken sh -` with the load balancer IP address (in my case, again, was `192.168.1.XX:6443` (ubuntu-1)) and the node token from the last server command.
