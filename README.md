@@ -1,7 +1,7 @@
 # Portable HA k3s
 
 I have been thinking about running Kubernetes but didn't know where to get started. 
-[Techno Tim](https://github.com/techno-tim/youtube-videos/tree/master/k3s-ha-install) introduced me to k3s: 
+[Techno Tim](https://github.com/techno-tim/youtube-videos/tree/master/k3s-ha-install) introduced me to [k3s](https://rancher.com/docs/k3s/latest/en/): 
 
 > A highly optimized distribution of Kubernetes that can run on ARM, IoT, Raspberry Pis, or even x86 hardware. It's small, lightweight, and gives all the features in Kubernetes!
 
@@ -12,6 +12,8 @@ Here is my attempt at setting it up, virtualized, and hosted on my PC.
 ### Architecture
 
 ![k3s High Availability](images/k3s-architecture-ha-server.png)
+
+Taken from the [Rancher Docs](https://rancher.com/docs/k3s/latest/en/architecture/#high-availability-k3s-server-with-an-external-db).
 
 #### Virtualization Tool
 
